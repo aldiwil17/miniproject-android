@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">body{padding:16px; margin:0} ol,ul{padding-left:15px} ul>li, ol>li{padding-left:0; margin-left:8px; margin-bottom:3px;}</style>
+</head>
+<body>
+Given the image url, you have to create a simple game named: <b>Sliding Image Puzzle</b>! <br/>
+
+In the game, there will be a grid 4x4.
+
+<h4>Input</h4>
+Url of image, eg: "http://example.com/image.jpg"
+
+<h4>Output</h4>
+<ol>
+    <li>You have to download the image from the given url. If the image is not a square, you have to crop it to square. Also, you have to validate the image size must have min resolution of 400x400pixel. After you crop the image, you have to slice the image to 4x4 subimages.<br /><br />
+        For example if the cropped image is 400x400 pixel, you have to sliced the image so the result will be 16 images of 100x100 pixel each.
+        After the image is sliced, you don't need the bottom right corner of the image, so there will only have 15 sliced images.<br /><br />
+    </li>
+    <li>When the user see the activity first time, place the 15 sliced images randomly to the grid. The randomization algorithm must be made so that the game can be solvable.<br /><br />
+
+    </li>
+    <li>Start the game. Notice that, the grid is 4x4, but the images is 15, so there is empty space in the grid. Images adjacent to the empty space (horizontal or vertical) can be clicked (or slided). If so, the empty space and the clicked image will swap.<br /><br />
+
+    </li>
+    <li>The game will finish when the grid 4x4 is aligned to the original images. If this state is reached, show the dialog that state to user that the game is finished.<br /><br />
+    </li>
+    <li>You also need to handle issues that happen when rotating the device, including the layout and the user input.<br />
+    </li>
+</ol>
+
+</body>
+</html>

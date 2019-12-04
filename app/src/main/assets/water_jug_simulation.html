@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">body{padding:16px; margin:0} ol,ul{padding-left:15px} ul>li, ol>li{padding-left:0; margin-left:8px; margin-bottom:3px;}</style>
+</head>
+<body>
+Given an integer X liter jug and an integer Y liter jug where 0 &lt; X &lt; Y. Both of the jugs are initially empty.<br/><br/>
+
+You have to simulate how to get the integer Z liter of water where 0 &lt; Z &lt; Y in the smallest number of action.<br/><br/>
+
+
+There are 3 type of actions that are available to get the water:
+<ol>
+    <li>
+        FILL a jug with water to full
+    </li>
+    <li>
+        POUR the water from a jug to another jug
+    </li>
+    <li>
+        EMPTY all water from a jug
+    </li>
+</ol>
+
+<h3>Example</h3>
+<h4>Input</h4>
+jug1 = 4<br />
+jug2 = 7<br />
+target = 5<br />
+<br/>
+<h4>Output</h4> 8
+
+<h4>Explanation</h4>
+There are minimum 8 actions to get the objective:
+<ol>
+    <li>FILL jug 1 with water. Jug 1 is now 4 liter
+    </li>
+    <li>POUR jug 1 to jug 2. Jug 1 is now empty. Jug 2 is now 4 liter water
+    </li>
+    <li>FILL jug 1 with water
+    </li>
+    <li>POUR jug 1 to jug 2. Jug 1 is now 1 liter. Jug 2 is now 7 liter water
+    </li>
+    <li>EMPTY jug 2
+    </li>
+    <li>POUR jug 1 to jug 2. Jug 1 is now empty. Jug 2 is now 1 liter water
+    </li>
+    <li>FILL jug 1 with water
+    </li>
+    <li>POUR jug 1 to jug 2. Jug 1 is now empty. Jug 2 is now 5 liter water
+    </li>
+</ol>
+Finish in minimum 8 actions.<br/><br/>
+
+<h3>Other Tasks</h3>
+You also have to create the custom view for the jug to illustrate the amount of water filled in the jug. <br/>
+Below is the illustration of water jug view to be created:<br/>
+
+<img src="file:///android_asset/waterjugview_example.png" style="width:200px;">
+</body>
+</html>

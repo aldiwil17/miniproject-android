@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">body{padding:16px; margin:0} img{display: inline;max-width: 100% !important ;height:auto !important;} ol,ul{padding-left:15px} ul>li, ol>li{padding-left:0; margin-left:8px; margin-bottom:3px;}</style>
+</head>
+<body>
+To run this sample project, you need to register to <a href="https://newsapi.org/">https://newsapi.org/</a> and put the api key in the project.<br /><br />
+
+A sample of how get the api and show the result to the list is already given.<br/>
+<img src="file:///android_asset/news_initial.png" /><br/>
+You are asked to improve the page by the following tasks.<br />
+<ul style="list-style-type:disc;">
+    <li>
+        Improve the view by showing the <b>loading state</b> when loading the data, <b>empty state</b> when the data is empty, and <b>error and retry state</b> when the data is error.<br /><br />
+    </li>
+    <li>
+        Currently the page is showing only up to 20 data of the first page. You have to add capability to <b>Load More</b> if the user go to the bottom of the list.<br /><br />
+    </li>
+    <li>
+        Show the <b>Slider Banner</b> in the top of the list. It shows up to 5 of headline news data (See documentation from the newsapi.org!).<br /><br />
+        User can slide the slider to the left/right. The slider has the page indicator in the bottom and periodically can turn to next page every 5 seconds.<br /><br />
+
+        Below is illustration of the slider<br />
+        <img src="file:///android_asset/tokopedia_slider_banner.png" /><br /><br />
+    </li>
+    <li>
+        <b>Format the date!</b> Instead of 2009-01-10T20:45:00Z, you have to put the date to 10 January 2009. The date should aligned with the user's local device.<br /><br />
+    </li>
+    <li>
+        Instead of showing the date to each item, You are asked to <b>group the news by date</b>.<br />
+        For example:<br />
+        10 January 2019<br />
+        [News 1]<br />
+        [News 2]<br />
+        9 January 2019<br />
+        [News 3]<br />
+        [News 4]<br />
+        [News 5]<br /><br />
+    </li>
+    <li>
+        Add <b>Search capability</b> to allow the user to search the news by the keyword he/she wants.<br /><br />
+    </li>
+    <li>
+        Add <b>offline capability</b> by storing the news to the database, so the news can be shown to user even he/she is not online.<br /><br />
+    </li>
+</ul>
+
+</body>
+</html>

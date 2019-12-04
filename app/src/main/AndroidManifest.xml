@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tokopedia.testproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".problems.algorithm.maxrectangle.MaxRectActivity"
+            android:label="@string/maximum_rectangle">
+        </activity>
+
+        <activity android:name=".problems.algorithm.continousarea.MaxContinousAreaActivity"
+            android:label="@string/maximum_continous_area">
+        </activity>
+
+        <activity android:name=".problems.algorithm.waterJug.WaterJugMinimumCaseActivity"
+            android:label="@string/minimum_of_pour_in_water_jug_problem">
+        </activity>
+
+        <activity android:name=".problems.androidView.waterJugSimulation.WaterJugCaseActivity"
+            android:label="@string/water_jug_simulation_case">
+        </activity>
+
+        <activity android:name=".problems.androidView.waterJugSimulation.WaterJugSimulationActivity"
+            android:label="@string/water_jug_simulation">
+        </activity>
+
+        <activity android:name=".problems.androidView.slidingImagePuzzle.SlidingImagePuzzleCaseActivity"
+            android:label="@string/sliding_image_puzzle">
+        </activity>
+
+        <activity android:name=".problems.androidView.slidingImagePuzzle.SlidingImageGameActivity"
+            android:label="@string/sliding_image_puzzle">
+        </activity>
+
+        <activity android:name=".problems.androidView.graphTraversal.GraphCaseActivity"
+            android:label="@string/graph_traversal">
+        </activity>
+
+        <activity android:name=".problems.androidView.graphTraversal.GraphActivity"
+            android:label="@string/graph_traversal">
+        </activity>
+
+        <activity android:name=".problems.news.view.NewsActivity"
+            android:label="@string/news">
+        </activity>
+        <activity android:name=".problems.news.view.NewsCaseActivity"
+            android:label="@string/news">
+        </activity>
+    </application>
+
+</manifest>

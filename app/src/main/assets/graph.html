@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">body{padding:16px; margin:0} img{display: inline;max-width: 100% !important ;height:auto !important;} ol,ul{padding-left:15px} ul>li, ol>li{padding-left:0; margin-left:8px; margin-bottom:3px;}</style>
+</head>
+<body>
+Given a <b>graph</b> view that represent a tree (there is no cyclic), a <b>rootNode</b>, and an integer of <b>target</b> distance, you have to traverse the graph and give the color to each nodes in the graph with the following criteria:<br />
+<ul style="list-style-type:disc;">
+    <li>
+        Root Node is colored <font color="purple">purple</font>.
+    </li>
+    <li>
+        Nodes with the distance are less than the target distance are colored <font color="green">green</font>.
+    </li>
+    <li>
+        Nodes with the distance are equal to the target distance are colored <font color="orange">orange</font>.
+    </li>
+    <li>
+        Other Nodes outside the above criteria are <font color="blue">blue</font>.
+    </li>
+</ul>
+
+*Distance is the number of distinct edges from a node to the rootNode. <br />
+
+<h3>Example</h3>
+<h4>Input</h4>
+Graph = <br />
+<img src="file:///android_asset/graph_initial.png" /><br/>
+RootNode = Node 1 <br/>
+Target Distance = 2<br/>
+
+<h4>Output</h4>
+<img src="file:///android_asset/graph_expected_result.png" />
+
+<h4>Explanation</h4>
+Node 1 is root, so it is colored <font color="purple">purple</font><br/>
+Node 2 has distance 1 to Node 1, so it is colored <font color="green">green</font><br/>
+Node 3 has distance 1 to Node 1, so it is colored <font color="green">green</font><br/>
+Node 4 has distance 2 to Node 1, so it is colored <font color="orange">orange</font><br/>
+Node 5 has distance 2 to Node 1, so it is colored <font color="orange">orange</font><br/>
+Node 6 has distance 2 to Node 1, so it is colored <font color="orange">orange</font><br/>
+Node 7 has distance 2 to Node 1, so it is colored <font color="orange">orange</font><br/>
+</body>
+</html>

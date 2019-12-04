@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Tokopedia Test Project</string>
+    <string name="graph_traversal">Graph Traversal</string>
+    <string name="problem_7">Problem 7</string>
+    <string name="maximum_rectangle">Maximum Rectangle</string>
+    <string name="maximum_continous_area">Maximum Continuous Area</string>
+    <string name="image_puzzle">Image Puzzle</string>
+    <string name="news">News</string>
+    <string name="water_jug_simulation_case">Water Jug Simulation Case</string>
+    <string name="water_jug_simulation">Water Jug Simulation</string>
+    <string name="sliding_image_puzzle_info"><![CDATA[
+Given the image url, you have to create a simple game named: <b>Sliding Image Puzzle</b>!
+
+In the game, there will be a grid 4x4.
+1. You have to download the image from the given url. If the image is not a square, you have to crop it to square. Also, you have to validate the image size must have min resolution of 400x400pixel. After you crop the image, you have to slice the image to 4x4 subimages.
+For example if the cropped image is 400x400 pixel, you have to sliced the image so the result will be 16 images of 100x100 pixel each.
+After the image is sliced, you don\'t need the bottom right corner of the image, so there will only have 15 sliced images.
+
+2. When the user see the activity first time, place the 15 sliced images randomly to the grid. The randomization algorithm must be made so that the game can be solvable.
+
+3. Start the game. Notice that, the grid is 4x4, but the images is 15, so there is empty space in the grid. Images adjacent to the empty space (horizontal or vertical) can be clicked (or slided). If so, the empty space and the clicked image will swap.
+
+4. The game will finish when the grid 4x4 is aligned to the original images. If this state is reached, show the dialog that state to user that the game is finished.
+
+You also need to handle issues that happen when rotating the device, including the layout and the user input.]]></string>
+
+    <string name="go">Go!</string>
+    <string name="fill_jug_x">fill jug %1$d</string>
+    <string name="pour_jug_x">pour water from jug %1$d to jug %2$d</string>
+    <string name="empty_jug_x">empty jug %1$d</string>
+    <string name="algorithm">Algorithm</string>
+    <string name="max_rect_title">Maximum Rectangle in 2D Array</string>
+    <string name="max_continuous_area_title">Maximum Continuous Area in 2D Array</string>
+    <string name="android_basic_view">Android - Basic View</string>
+    <string name="minimum_of_pour_in_water_jug_problem">Minimum of \"Pour\" in Water Jug Problem</string>
+    <string name="water_jug_simulation_view">Water Jug Simulation View</string>
+    <string name="sliding_image_puzzle">Sliding Image Puzzle</string>
+    <string name="android_implementation">Android</string>
+    <string name="water_jug_example">Below is the illustration of Water Jug Simulation as well as Water Jug View</string>
+    <string name="jug_1">Jug 1</string>
+    <string name="target">target</string>
+    <string name="jug_2">Jug 2</string>
+    <string name="simulate">Simulate!</string>
+
+</resources>

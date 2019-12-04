@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:text="@string/algorithm"
+            android:textAllCaps="true"
+            android:textSize="18sp" />
+
+        <include layout="@layout/partial_line_divider" />
+
+        <TextView
+            android:id="@+id/button1"
+            style="@style/Title.Button"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/listPreferredItemHeightSmall"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/max_rect_title" />
+
+        <TextView
+            android:id="@+id/button2"
+            style="@style/Title.Button"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/listPreferredItemHeightSmall"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/max_continuous_area_title" />
+
+        <TextView
+            android:id="@+id/button3"
+            style="@style/Title.Button"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/listPreferredItemHeightSmall"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/minimum_of_pour_in_water_jug_problem" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:text="@string/android_basic_view"
+            android:textAllCaps="true"
+            android:textSize="18sp" />
+
+        <include layout="@layout/partial_line_divider" />
+
+        <TextView
+            android:id="@+id/button4"
+            style="@style/Title.Button"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/listPreferredItemHeightSmall"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/water_jug_simulation_view" />
+
+        <TextView
+            android:id="@+id/button5"
+            style="@style/Title.Button"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/listPreferredItemHeightSmall"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/sliding_image_puzzle" />
+
+        <TextView
+            android:id="@+id/button6"
+            style="@style/Title.Button"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/listPreferredItemHeightSmall"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/graph_traversal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:text="@string/android_implementation"
+            android:textAllCaps="true"
+            android:textSize="18sp" />
+
+        <include layout="@layout/partial_line_divider" />
+
+        <TextView
+            android:id="@+id/button7"
+            style="@style/Title.Button"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/listPreferredItemHeightSmall"
+            android:gravity="start|center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/news" />
+
+    </LinearLayout>
+</ScrollView>
