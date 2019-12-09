@@ -8,4 +8,17 @@
     android:layout_marginTop="16dp"
     grid:columnCount="4">
 
+    <com.tokopedia.testproject.problems.androidView.slidingImagePuzzle.GestureDetectGridView android:id="@+id/gridView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:grid="http://schemas.android.com/apk/res-auto"
+        android:layout_marginTop="16dp"
+        grid:columnCount="4"
+        tools:context=".problems.androidView.slidingImagePuzzle.SlidingImageGameActivity">
+
+    </com.tokopedia.testproject.problems.androidView.slidingImagePuzzle.GestureDetectGridView>
+
+
 </android.support.v7.widget.GridLayout>

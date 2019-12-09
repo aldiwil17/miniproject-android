@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.tokopedia.testproject.R;
 import com.tokopedia.testproject.problems.news.model.Article;
+import com.tokopedia.testproject.problems.news.utils.DateFormater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,16 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         } else {
             this.articleList = articleList;
         }
+    }
+
+    public void addArticle(List<Article> articles){
+        articleList.addAll(articles);
+        notifyDataSetChanged();
+    }
+
+    public void clearArticle(){
+        articleList.clear();
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -65,7 +76,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             Glide.with(itemView).load(article.getUrlToImage()).into(imageView);
             tvTitle.setText(article.getTitle());
             tvDescription.setText(article.getDescription());
-            tvDate.setText(article.getPublishedAt());
+            tvDate.setText(DateFormater.format(DateFormater.formatDate, article.getPublishedAt()));
         }
     }
 }

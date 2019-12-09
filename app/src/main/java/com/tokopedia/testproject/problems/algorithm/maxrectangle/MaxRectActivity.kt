@@ -13,12 +13,14 @@ class MaxRectActivity : AppCompatActivity() {
         webView.loadFile("max_rect.html");
 
         // example of how to call the function
-        Solution.maxRect(arrayOf(
+        val solution =  Solution.maxRect(arrayOf(
                 intArrayOf(0, 0, 1, 0, 1),
                 intArrayOf(0, 0, 1, 1, 1),
                 intArrayOf(1, 1, 1, 1, 1),
                 intArrayOf(0, 1, 1, 1, 1),
                 intArrayOf(1, 0, 0, 0, 1)))
+
+        tvResult.setText(solution.toString())
     }
 
 }

@@ -31,8 +31,8 @@ public class NewsPresenter {
         this.view = view;
     }
 
-    public void getEverything(String keyword) {
-        NewsDataSource.getService().getEverything(keyword)
+    public void getEverything(String keyword, int page) {
+        NewsDataSource.getService().getEverything(keyword, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<NewsResult>() {

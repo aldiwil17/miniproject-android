@@ -39,6 +39,7 @@ public class NewsDataSource {
                             return chain.proceed(chain.request()
                                     .newBuilder()
                                     .header("Authorization", BuildConfig.NEWS_API_KEY)
+                                    .header("X-API-Key", "186c7943817d48f190f3f27977ab5057")
                                     .build());
                         }
                     })

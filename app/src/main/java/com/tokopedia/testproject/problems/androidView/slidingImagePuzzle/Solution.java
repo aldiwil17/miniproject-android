@@ -2,12 +2,20 @@ package com.tokopedia.testproject.problems.androidView.slidingImagePuzzle;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import com.tokopedia.testproject.R;
 import com.tokopedia.testproject.UtilKt;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Solution {
     public interface onSuccessLoadBitmap{
@@ -18,6 +26,7 @@ public class Solution {
         ArrayList<Bitmap> bitmapList = new ArrayList<>();
         // TODO, download the image, crop, then sliced to 15 Bitmap (4x4 Bitmap). ignore the last Bitmap
         // below is stub, replace with your implementation!
+
         bitmapList.add(UtilKt.toBitmap(context, R.drawable.sample11));
         bitmapList.add(UtilKt.toBitmap(context, R.drawable.sample12));
         bitmapList.add(UtilKt.toBitmap(context, R.drawable.sample13));

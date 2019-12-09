@@ -1,8 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.tokopedia.testproject.problems.news.view.VerticalRecyclerView
-    android:id="@+id/recyclerView"
-    android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="16dp"
-    android:clipToPadding="false"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:elevation="2dp"
+        android:layout_margin="8dp">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search News"
+            android:layout_marginLeft="25dp"/>
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_search_black_24dp"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rv_banner"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/search"
+        android:elevation="2dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true" />
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:gravity="bottom"
+            android:padding="10dip"
+            app:centered="true"
+            app:fillColor="#df0623"
+            app:pageColor="#fff"
+            app:snap="false" />
+    </RelativeLayout>
+
+   <android.support.v4.widget.SwipeRefreshLayout
+       android:id="@+id/refresh"
+       android:layout_below="@id/rv_banner"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <com.tokopedia.testproject.problems.news.view.VerticalRecyclerView
+           android:id="@+id/recyclerView"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           xmlns:android="http://schemas.android.com/apk/res/android"
+           android:padding="16dp"
+           android:clipToPadding="false"/>
+
+   </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_not_found"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:layout_below="@id/search"
+        android:gravity="center_horizontal"
+        android:background="#fff"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/sample11"
+            android:layout_marginTop="32dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oops!"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pencarian Tidak Ditemukan"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:layout_below="@id/search"
+        android:gravity="center_horizontal"
+        android:background="#fff"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/sample11"
+            android:layout_marginTop="32dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oops!"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pencarian Tidak Ditemukan"
+            android:layout_marginTop="8dp"/>
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:text="Coba Lagi"
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+</RelativeLayout>
