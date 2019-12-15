@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.tokopedia.testproject.R;
 
+import java.util.HashMap;
+
 import de.blox.graphview.BaseGraphAdapter;
 import de.blox.graphview.Graph;
 import de.blox.graphview.GraphView;
@@ -24,6 +26,7 @@ public class GraphActivity extends AppCompatActivity {
     private int nodeCount = 1;
     private Node currentNode;
     protected BaseGraphAdapter<ViewHolder> adapter;
+    private int[] nodeColors = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class GraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_graph);
 
         final Graph graph = createGraph();
+        nodeColors = new int[nodeCount];
         setupAdapter(graph);
     }
 
@@ -41,13 +45,16 @@ public class GraphActivity extends AppCompatActivity {
             @NonNull
             @Override
             public ViewHolder onCreateViewHolder(View view) {
-//                view.setBackgroundColor(Color.parseColor("#00ff00"));
                 return new ViewHolder(view);
             }
 
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
-                viewHolder.cardView.setCardBackgroundColor(Color.parseColor("#00ff00"));
+                try {
+                    viewHolder.cardView.setCardBackgroundColor(nodeColors[position]);
+                } catch (Exception e) {
+
+                }
                 viewHolder.textView.setText(data.toString());
             }
         };
@@ -59,7 +66,6 @@ public class GraphActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 currentNode = adapter.getNode(position);
                 adapter.notifyDataChanged(currentNode);
-                view.setBackgroundColor(Color.parseColor("#00ff00"));
                 Snackbar.make(graphView, "Clicked on " + currentNode.getData().toString(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -81,9 +87,37 @@ public class GraphActivity extends AppCompatActivity {
     }
 
     private void traverseAndColorTheGraph(Graph graph, Node rootNode, int target) {
-        adapter.getView(0, null, null)
-                .setBackgroundColor(Color.parseColor("#00ff00"));
-        adapter.notifyDataChanged(rootNode);
+        boolean[] edgeVisited = new boolean[graph.getEdges().size()];
+        HashMap<Node, Integer> nodeDeep = new HashMap<>();
+        for (int i = 0; i < graph.getNodeCount(); i++) {
+            if (graph.getNode(i).equals(rootNode)) {
+                nodeColors[i] = Color.parseColor("#6a0dad");
+                adapter.notifyDataChanged(graph.getNode(i));
+                continue;
+            }
+            for (int j = 0; j < graph.getEdges().size(); j++) {
+                if (edgeVisited[j]) { continue; }
+
+                if (graph.getEdges().get(j).getSource().equals(rootNode)) {
+                    nodeDeep.put(graph.getNode(i), 1);
+                } else if (nodeDeep.get(graph.getEdges().get(j).getSource()) != null) {
+                    nodeDeep.put(graph.getNode(i), nodeDeep.get(graph.getEdges().get(j).getSource()) + 1);
+                }
+
+                edgeVisited[j] = true;
+                if (nodeDeep.get(graph.getNode(i)) < target) {
+                    nodeColors[i] = Color.parseColor("#00FF00");
+                } else if (nodeDeep.get(graph.getNode(i)) == target) {
+                    nodeColors[i] = Color.parseColor("#ffa500");
+                } else {
+                    nodeColors[i] = Color.parseColor("#0000FF");
+                }
+                adapter.notifyDataChanged(graph.getNode(i));
+                break;
+
+            }
+            adapter.notifyDataChanged(graph.getNode(i));
+        }
     }
 
     @Override
