@@ -20,7 +20,8 @@ class WaterJugMinimumCaseActivity : AppCompatActivity() {
         webView.loadFile("min_pour_jug.html")
 
         //example
-        Solution.minimalPourWaterJug(jug1Max, jug2Max, target)
+        val solution = Solution.minimalPourWaterJug(jug1Max, jug2Max, target)
+        tvResult.setText(solution.toString())
     }
 
 }

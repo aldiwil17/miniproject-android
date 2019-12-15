@@ -14,12 +14,14 @@ class MaxContinousAreaActivity : AppCompatActivity(){
         webView.loadFile("max_continuous_area.html");
 
         // example of how to call the function
-        Solution.maxContinuousArea(arrayOf(
+        val solution =  Solution.maxContinuousArea(arrayOf(
                 intArrayOf(1, 0, 0, 1, 0),
                 intArrayOf(0, 0, 1, 1, 1),
                 intArrayOf(1, 0, 0, 0, 1),
                 intArrayOf(0, 0, 1, 0, 1),
                 intArrayOf(1, 0, 1, 1, 1)))
+
+        tvResult.setText(solution.toString())
     }
 }
 

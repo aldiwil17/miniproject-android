@@ -1,5 +1,6 @@
 package com.tokopedia.testproject.problems.androidView.graphTraversal;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -40,23 +41,25 @@ public class GraphActivity extends AppCompatActivity {
             @NonNull
             @Override
             public ViewHolder onCreateViewHolder(View view) {
+//                view.setBackgroundColor(Color.parseColor("#00ff00"));
                 return new ViewHolder(view);
             }
 
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, Object data, int position) {
+                viewHolder.cardView.setCardBackgroundColor(Color.parseColor("#00ff00"));
                 viewHolder.textView.setText(data.toString());
             }
         };
 
         adapter.setAlgorithm(new FruchtermanReingoldAlgorithm());
-
         graphView.setAdapter(adapter);
         graphView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 currentNode = adapter.getNode(position);
                 adapter.notifyDataChanged(currentNode);
+                view.setBackgroundColor(Color.parseColor("#00ff00"));
                 Snackbar.make(graphView, "Clicked on " + currentNode.getData().toString(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -78,7 +81,9 @@ public class GraphActivity extends AppCompatActivity {
     }
 
     private void traverseAndColorTheGraph(Graph graph, Node rootNode, int target) {
-
+        adapter.getView(0, null, null)
+                .setBackgroundColor(Color.parseColor("#00ff00"));
+        adapter.notifyDataChanged(rootNode);
     }
 
     @Override

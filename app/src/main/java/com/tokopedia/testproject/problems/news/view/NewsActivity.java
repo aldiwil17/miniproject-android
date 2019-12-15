@@ -11,15 +11,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tokopedia.testproject.R;
@@ -27,7 +29,6 @@ import com.tokopedia.testproject.problems.news.model.Article;
 import com.tokopedia.testproject.problems.news.presenter.NewsPresenter;
 import com.tokopedia.testproject.problems.news.utils.AppDatabase;
 import com.viewpagerindicator.CirclePageIndicator;
-import com.wang.avi.AVLoadingIndicatorView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -68,6 +69,16 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
         dialog = new SpotsDialog(NewsActivity.this);
         newsPresenter = new NewsPresenter(this);
         newsAdapter = new NewsAdapter(null);
+        setupView();
+
+        recyclerView.setAdapter(newsAdapter);
+
+        db = Room.databaseBuilder(getApplicationContext(),
+        AppDatabase.class, "database-news").build();
+        checkOnline();
+    }
+
+    private void setupView(){
         recyclerView = findViewById(R.id.recyclerView);
         etSearch = findViewById(R.id.et_search);
         ivSearch = findViewById(R.id.iv_search);
@@ -77,6 +88,7 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
         btnRetry = findViewById(R.id.btn_retry);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
+
         ivSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +96,21 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
                     keyword = etSearch.getText().toString();
                     searchNews();
                 }
+            }
+        });
+
+        etSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    // Your piece of code on keyboard search click
+                    if(!etSearch.getText().toString().trim().isEmpty()){
+                        keyword = etSearch.getText().toString();
+                        searchNews();
+                    }
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -114,12 +141,6 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
                 refresh();
             }
         });
-
-        recyclerView.setAdapter(newsAdapter);
-
-        db = Room.databaseBuilder(getApplicationContext(),
-        AppDatabase.class, "database-news").build();
-        checkOnline();
     }
 
     private void searchNews(){
@@ -220,7 +241,7 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //we are connected to a network
+            //connected to a network
             return true;
         }
         else {
