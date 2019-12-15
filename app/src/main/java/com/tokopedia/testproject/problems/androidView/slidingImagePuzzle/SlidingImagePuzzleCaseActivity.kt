@@ -13,7 +13,7 @@ class SlidingImagePuzzleCaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // for example only. You may change this to any image url.
-        val imageUrl = "http://example.com/image.jpg";
+        val imageUrl = "https://apprecs.org/ios/images/app-icons/256/19/1001394201.jpg"
 
         setContentView(R.layout.activity_problem_simulation)
         webView.loadFile("sliding_image.html")

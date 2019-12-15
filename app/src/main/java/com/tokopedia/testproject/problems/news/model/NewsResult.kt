@@ -50,4 +50,5 @@ data class Article(
         @SerializedName("content")
         @ColumnInfo(name = "content")
         @Expose
-        val content: String? = null)
+        val content: String? = null,
+        val type: Int = 1)

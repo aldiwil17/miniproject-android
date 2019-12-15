@@ -28,10 +28,15 @@ import com.tokopedia.testproject.R;
 import com.tokopedia.testproject.problems.news.model.Article;
 import com.tokopedia.testproject.problems.news.presenter.NewsPresenter;
 import com.tokopedia.testproject.problems.news.utils.AppDatabase;
+import com.tokopedia.testproject.problems.news.utils.DateFormater;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -215,8 +220,8 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
     @Override
     public void onSuccessGetNews(List<Article> articleList) {
         llError.setVisibility(View.GONE);
-        llNotFound.setVisibility(articleList.isEmpty()? View.VISIBLE: View.GONE);
         if(page == 1){
+            llNotFound.setVisibility(articleList.isEmpty() ? View.VISIBLE : View.GONE);
             generateImageUrl(articleList);
             setupBannerLayout();
             newsAdapter.setArticleList(articleList);
@@ -252,7 +257,9 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
     @Override
     public void onErrorGetNews(Throwable throwable) {
         Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_LONG).show();
-        llError.setVisibility(View.VISIBLE);
+        if(page == 1) {
+            llError.setVisibility(View.VISIBLE);
+        }
         dialog.dismiss();
         refreshLayout.setRefreshing(false);
     }

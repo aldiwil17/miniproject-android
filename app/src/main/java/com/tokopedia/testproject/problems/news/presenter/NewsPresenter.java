@@ -32,7 +32,7 @@ public class NewsPresenter {
     }
 
     public void getEverything(String keyword, int page) {
-        NewsDataSource.getService().getEverything(keyword, page)
+        NewsDataSource.getService().getEverything(keyword, page, "relevancy")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<NewsResult>() {
