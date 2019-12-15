@@ -94,7 +94,7 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
             public void onClick(View v) {
                 if(!etSearch.getText().toString().trim().isEmpty()){
                     keyword = etSearch.getText().toString();
-                    searchNews();
+                    refresh();
                 }
             }
         });
@@ -106,7 +106,7 @@ public class NewsActivity extends AppCompatActivity implements com.tokopedia.tes
                     // Your piece of code on keyboard search click
                     if(!etSearch.getText().toString().trim().isEmpty()){
                         keyword = etSearch.getText().toString();
-                        searchNews();
+                        refresh();
                     }
                     return true;
                 }
