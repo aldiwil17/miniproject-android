@@ -3,38 +3,20 @@ package com.tokopedia.testproject.problems.androidView.slidingImagePuzzle;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayout;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import com.tokopedia.testproject.R;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-import android.view.ViewTreeObserver;
-import android.widget.Button;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class SlidingImageGameActivity extends AppCompatActivity {
     public static final String X_IMAGE_URL = "x_image_url";
@@ -95,20 +77,18 @@ public class SlidingImageGameActivity extends AppCompatActivity {
 
         // TODO add handling for rotation to save the user input.
         // If the device is rotated, it should retain user's input, so user can continue the game.
-        Log.e("image-bitmap", imageUrl);
+        Picasso.get().invalidate(imageUrl);
         Picasso.get().load(imageUrl).into(new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                ImageView imageView = findViewById(R.id.image);
-                imageView.setImageBitmap(bitmap);
+                RelativeLayout container = findViewById(R.id.puzzle_container);
+                container.removeView(boardView);
+                container.addView(boardView);
                 boardView.initialize(bitmap);
-                Log.e("image-bitmap", "sukses");
             }
 
             @Override
-            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-                Log.e("image-bitmap", "err");
-            }
+            public void onBitmapFailed(Exception e, Drawable errorDrawable) {}
 
             @Override
             public void onPrepareLoad(Drawable placeHolderDrawable) {}
